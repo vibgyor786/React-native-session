@@ -9,6 +9,7 @@ import {
   TouchableWithoutFeedback,
   Alert,
   ToastAndroid,
+  Modal,
 } from "react-native";
 
 export default function ChangeState({ navigation, route }) {
@@ -66,8 +67,24 @@ function ChangeStateUsingTouchables() {
     );
     // ToastAndroid.show("A pikachu appeared nearby !", ToastAndroid.SHORT);
   }
+  const [show, setShow] = useState(false);
+  function customModal() {
+    setShow(true);
+  }
   return (
     <View style={styles.parent}>
+      <Modal
+        transparent
+        visible={show}
+        onRequestClose={() => {
+          setShow(!show);
+        }}
+      >
+        <View style={styles.modal}>
+          <Text>This is modal</Text>
+          <Button title="close" onPress={() => setShow(false)}></Button>
+        </View>
+      </Modal>
       <TouchableOpacity style={styles.btn} onPress={button_press}>
         <Text style={{ color: "white", fontSize: 20 }}>Press Here</Text>
       </TouchableOpacity>
@@ -75,7 +92,7 @@ function ChangeStateUsingTouchables() {
       <TouchableHighlight
         style={styles.btn}
         underlayColor="#5cb85c"
-        onPress={button_press}
+        onPress={customModal}
       >
         <Text style={{ color: "white", fontSize: 20 }}>Press Here</Text>
       </TouchableHighlight>
@@ -108,6 +125,17 @@ const styles = StyleSheet.create({
   text: {
     marginVertical: 50,
     fontSize: 40,
+  },
+  modal: {
+    borderWidth: 1,
+    backgroundColor: "white",
+    borderRadius: 10,
+    marginHorizontal: "10%",
+    marginTop: "30%",
+    width: "80%",
+    height: "40%",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

@@ -10,6 +10,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import BasicStyling from "./BasicStyling";
 import AllButtonComp from "./AllButtonComp";
 import AsyncStorageComp from "./AsyncStorageComp";
+import Scroll from "./Scroll";
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNav() {
@@ -45,6 +46,7 @@ export default function DrawerNav() {
           component={ChangeState}
         />
         <Drawer.Screen name="Flat List Component" component={FlatListComp} />
+        <Drawer.Screen name="Scroll list Component" component={Scroll} />
 
         <Drawer.Screen name="Basic Component" component={BasicStyling} />
         <Drawer.Screen

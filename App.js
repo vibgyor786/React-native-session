@@ -6,6 +6,8 @@ import Nav from "./components/Nav";
 import DrawerNav from "./components/DrawerNav";
 export default function App() {
   return <DrawerNav />;
+  // return <Nav />;
+  // return <TabNavigationComp />;
 }
 
 const styles = StyleSheet.create({});
